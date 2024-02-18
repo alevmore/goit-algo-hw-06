@@ -3,20 +3,21 @@ from collections import UserDict
 class Field:
     def __init__(self, value):
         self.value = value
-       
+        self.name = value
+        
     def __str__(self):
         return str(self.value) # реалізація класу
 
 class Name(Field): 
-    def __init__(self, name):
-        self.name= name
+    def __init__(self):
+        pass
         
                 
 class Phone(Field):
     MAX_LEN = 10
     def __init__(self, phone):
         self.phone = phone
-
+    
     def __str__(self):    
         if len(str(self.phone)) <= 10:
             return str(self.phone)
@@ -25,28 +26,26 @@ class Phone(Field):
         
 class Record (Field):
     def __init__(self, name):
-        self.name = Name (name)
-        self.phones = []
+        self.name = Field (name)
         record = {}
-        record [self.name] = self.phones
-                
+        record [self.name]  = self.value
+        self.phone= self.value
+        self.phones = []            
+    
     def add_phone (self):
-        for self.phone in self.phones:
-            if self.phone not in self.phones:
-                return self.phones.append(self.phone, end= ',')
-            else:
-                return self.phone == self.phone
+        [self.phones.append (self.phone, end = ', ') if self.phone in self.phones else self.phone == self.phone for self.phone in self.phones]
+        return self.phones [self.name]
     
     def find_phone(self):
         for self.phone in self.phones:
             if self.phone in self.phones:
-                return self.phone
+                return self.phone 
             else:
                 return f'{self.phone} is not found'
    
     def edit_phones(self):
         [self.phone if self.phone == self.phone else self.phone for self.phone in self.phones]
-        return self.phones
+        return self.phones [self.name]
 
     # реалізація класу
 
